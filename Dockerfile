@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 
 LABEL maintainer="José González"
 
+SHELL ["/bin/bash", "-c"] 
+
 ENV TZ=America/Santiago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone
