@@ -9,7 +9,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common
+    software-properties-common \
+    curl
 
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 
