@@ -8,6 +8,9 @@ ENV TZ=America/Santiago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    software-properties-common
+
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -39,7 +42,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common \
     apache2 \
     libapache2-mod-php7.2
 
